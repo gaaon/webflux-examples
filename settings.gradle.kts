@@ -19,4 +19,5 @@ rootProject.name = "webflux-examples"
 
 include("examples:async-programming")
 
-include("practices:completablefuture")
+include("practices:completable-future")
+include("practices:reactive-streams")
