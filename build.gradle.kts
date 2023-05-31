@@ -33,8 +33,11 @@ subprojects {
 
 val nonSpringProjects = listOf(
     "examples:async-programming",
+    "practices:completable-future",
     "practices:reactive-streams",
     "practices:nio-server",
+    "practices:selector",
+    "practices:reactor-pattern",
 ).map { project(it) }
 
 configure(nonSpringProjects) {
