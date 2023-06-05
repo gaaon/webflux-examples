@@ -1,0 +1,13 @@
+GET http://localhost:8080/return-value/future
+
+###
+GET http://localhost:8080/return-value/void-shr
+
+###
+GET http://localhost:8080/return-value/void-swe
+
+###
+GET http://localhost:8080/return-value/void-status
+
+###
+GET http://localhost:8080/return-value/void

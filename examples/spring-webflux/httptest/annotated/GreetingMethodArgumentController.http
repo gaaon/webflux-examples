@@ -1,0 +1,7 @@
+GET http://localhost:8080/method-arguments/swe?name=taewoo
+
+###
+GET http://localhost:8080/method-arguments/reqres?name=taewoo
+
+###
+GET http://localhost:8080/method-arguments/session?name=other

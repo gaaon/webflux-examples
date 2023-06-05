@@ -1,0 +1,14 @@
+POST http://localhost:8080/greet/consume/1
+Content-Type: application/json
+
+{
+    "name": "taewoo"
+}
+
+###
+POST http://localhost:8080/greet/consume/2
+Content-Type: application/json
+
+{
+    "name": "John"
+}

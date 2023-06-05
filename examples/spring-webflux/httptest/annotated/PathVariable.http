@@ -1,0 +1,10 @@
+GET http://localhost:8080/greet/name/taewoo
+
+###
+GET http://localhost:8080/greet/nate/a/taewoo
+
+###
+GET http://localhost:8080/greet/name/a/taewoo123
+
+###
+GET http://localhost:8080/greet/name/a/taewoo/home

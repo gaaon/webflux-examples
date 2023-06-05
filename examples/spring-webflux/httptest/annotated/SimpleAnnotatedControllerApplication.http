@@ -1,0 +1,15 @@
+GET http://localhost:8080/greet/?name=taewoo
+
+###
+GET http://localhost:8080/greet/name/taewoo33
+
+###
+POST http://localhost:8080/greet/json
+Content-Type: application/json
+
+{
+    "name": "taewoo"
+}
+
+###
+GET http://localhost:8080/greet/entity

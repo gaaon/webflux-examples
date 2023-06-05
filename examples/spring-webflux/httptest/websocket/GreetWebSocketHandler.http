@@ -1,0 +1,6 @@
+WEBSOCKET ws://localhost:8080/echo
+Content-Type: application/json
+
+###
+WEBSOCKET ws://localhost:8080/echo
+Content-Type: application/json

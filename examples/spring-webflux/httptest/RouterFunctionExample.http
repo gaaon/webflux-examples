@@ -1,0 +1,22 @@
+GET http://localhost:8080/greet/?name=taewoo
+
+###
+GET http://localhost:8080/greet/name/taewoo2
+
+###
+GET http://localhost:8080/greet/header
+X-Custom-Name: taewoo3
+
+###
+POST http://localhost:8080/greet/json
+Content-Type: application/json
+
+{
+    "name": "taewoo4"
+}
+
+###
+POST http://localhost:8080/greet/text
+Content-Type: text/plain
+
+taewoo5

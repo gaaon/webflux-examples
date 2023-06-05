@@ -19,6 +19,7 @@ rootProject.name = "webflux-examples"
 
 include("examples:async-programming")
 include("examples:kotlin-coroutine")
+include("examples:spring-webflux")
 
 include("practices:completable-future")
 include("practices:reactive-streams")

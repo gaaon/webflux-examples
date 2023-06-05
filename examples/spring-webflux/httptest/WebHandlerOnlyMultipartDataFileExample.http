@@ -1,0 +1,9 @@
+POST http://localhost:8080
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="data"; filename="data.json"
+Content-Type: application/json
+
+< ./data.json
+--WebAppBoundary--

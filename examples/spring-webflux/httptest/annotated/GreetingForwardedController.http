@@ -1,0 +1,4 @@
+GET http://localhost:8080/forwarded
+X-Forwarded-Proto: https
+X-Forwarded-Host: taewoo.com
+X-Forwarded-Port: 3333

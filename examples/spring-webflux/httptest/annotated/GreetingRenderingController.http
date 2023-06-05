@@ -1,0 +1,14 @@
+###
+# @no-redirect
+GET http://localhost:8080/greet/rendering/redirect/?name=taewoo
+
+###
+# @no-redirect
+GET http://localhost:8080/greet/rendering/redirect2
+
+###
+# @no-redirect
+GET http://localhost:8080/greet/rendering/redirect3
+
+###
+GET http://localhost:8080/greet/rendering/hello-html?name=taewoo
