@@ -2,6 +2,9 @@ plugins {
     java
     id("org.springframework.boot") version "2.7.11" apply false
     id("io.spring.dependency-management") version "1.1.0" apply false
+
+    kotlin("jvm") apply false
+    kotlin("plugin.spring") apply false
 }
 
 subprojects {

@@ -18,8 +18,9 @@ plugins {
 rootProject.name = "webflux-examples"
 
 include("examples:async-programming")
-include("examples:kotlin-coroutine")
 include("examples:spring-webflux")
+include("examples:kotlin-coroutine")
+include("examples:kotlin-coroutine-usage")
 
 include("practices:completable-future")
 include("practices:reactive-streams")
@@ -32,3 +33,7 @@ include("practices:sse")
 include("practices:webflux")
 include("practices:webflux-image")
 include("practices:websocket")
+include("practices:mongo-chat")
+include("practices:coroutine-mongo-chat")
+include("practices:r2dbc-webflux")
+include("practices:coroutine-r2dbc-webflux")

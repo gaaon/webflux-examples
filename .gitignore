@@ -39,3 +39,8 @@ out/
 .idea
 
 examples/kotlin-coroutine
+examples/kotlin-coroutine-usage
+practices/mongo-chat
+practices/coroutine-mongo-chat
+
+docker/mongo/data

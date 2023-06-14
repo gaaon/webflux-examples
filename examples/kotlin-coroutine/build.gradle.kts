@@ -3,6 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     java
     kotlin("jvm")
+    kotlin("plugin.spring")
+    id("org.springframework.boot")
+    id("io.spring.dependency-management")
 }
 
 repositories {
@@ -11,7 +14,7 @@ repositories {
 
 dependencies {
     // coroutine
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:_")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:_")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:_")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-rx3:_")
 
@@ -28,7 +31,7 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all", "-Xcontext-receivers")
+        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all")
         jvmTarget = "11"
     }
 }
