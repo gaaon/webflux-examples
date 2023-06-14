@@ -49,7 +49,8 @@ public class NettySeparatedEchoServer2 {
                     var charset = StandardCharsets.UTF_8;
                     var buf = ctx.alloc().buffer();
                     buf.writeCharSequence(body, charset);
-                    ctx.write(buf, promise);
+                    ctx.write(buf, promise)
+                            .addListener(ChannelFutureListener.CLOSE);
                 }
             }
         };
