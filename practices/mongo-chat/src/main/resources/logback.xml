@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d{mm:ss} [%thread] - %m%n</Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework.r2dbc" level="DEBUG"/>
+    <logger name="org.springframework.data.mongodb.core.ReactiveMongoTemplate" level="DEBUG"/>
+    <logger name="org.springframework.data.mongodb.ReactiveMongoTransactionManager" level="DEBUG"/>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

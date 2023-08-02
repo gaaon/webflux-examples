@@ -45,4 +45,6 @@ include("practices:r2dbc-webflux-integration-test")
 include("practices:coroutine-mongo-chat")
 include("practices:coroutine-r2dbc-webflux")
 
+include("campusgram-practice:article")
+
 include("study:study-spring-circuit-breaker")

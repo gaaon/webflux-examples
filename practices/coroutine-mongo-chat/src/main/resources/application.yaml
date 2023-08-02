@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:1234@mongo1:27017,mongo2:27018/wooman?authSource=admin
