@@ -39,6 +39,7 @@ subprojects {
 val nonSpringProjects = listOf(
     "examples:async-programming",
     "examples:kotlin-coroutine",
+    "examples:kotlin-coroutine",
     "practices:completable-future",
     "practices:reactive-streams",
     "practices:reactor",

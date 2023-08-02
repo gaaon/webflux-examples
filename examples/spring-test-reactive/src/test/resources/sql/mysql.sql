@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS USERS
+(
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    name             VARCHAR(255) NOT NULL,
+    age              INT          NOT NULL,
+    profile_image_id VARCHAR(255) NOT NULL,
+    password         VARCHAR(255) NOT NULL,
+    created_at       DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at       DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS GREETING
+(
+    id       INT AUTO_INCREMENT PRIMARY KEY,
+    greeting VARCHAR(255) NOT NULL,
+    who      VARCHAR(255) NOT NULL
+)

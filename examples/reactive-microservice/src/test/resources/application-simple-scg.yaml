@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user_route
+          uri: http://localhost:8001
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user(?<segment>/?.*), /api/$\{segment}
+        - id: greeting
+          uri: http://localhost:8001/greeting
+          predicates:
+            - name: Greeting

@@ -1,0 +1,4 @@
+spring:
+  cloud:
+    function:
+      definition: addGreeting;logName;supplyNames2

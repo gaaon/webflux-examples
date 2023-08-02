@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: hello
+          uri: http://localhost:8001
+          predicates:
+            - name: GreetPath
+              args:
+                greeting: hello
+        - id: hola
+          uri: http://localhost:8001
+          predicates:
+            - GreetPath=hola

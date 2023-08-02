@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: service_route
+          uri: http://localhost:8081
+          predicates:
+            - Path=/service/**
+          filters:
+            - RewritePath=/service(?<segment>/?.*), $\{segment}
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG

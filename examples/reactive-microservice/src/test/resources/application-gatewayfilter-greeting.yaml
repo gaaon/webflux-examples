@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: add-hello-prefix
+          uri: http://localhost:8001
+          predicates:
+            - Method=GET
+          filters:
+            - AddGreetingPath=hello
+        - id: add-hola-prefix
+          uri: http://localhost:8001
+          predicates:
+            - Method=GET
+          filters:
+            - name: AddGreetingPath
+              args:
+                greeting: hola

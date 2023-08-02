@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: set-ok-status
+          uri: http://localhost:8001
+          predicates:
+            - Path=/created
+          filters:
+            - SetStatus=201
+        - id: set-bad-request-status
+          uri: http://localhost:8001
+          predicates:
+              - Path=/bad-request
+          filters:
+              - name: SetStatus
+                args:
+                  status: BAD_REQUEST

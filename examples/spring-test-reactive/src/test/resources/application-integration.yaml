@@ -1,0 +1,12 @@
+spring:
+  mongodb:
+    embedded:
+      version: 6.0.1
+  r2dbc:
+    url: r2dbc:tc:mysql:///wooman?TC_IMAGE_TAG=8.0.31
+    username: root
+    password: 1234
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:sql/mysql.sql

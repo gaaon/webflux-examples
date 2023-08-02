@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: after-july
+          uri: http://localhost:8001
+          predicates:
+            - After=2023-07-01T00:00:00+09:00
+          filters:
+            - AddResponseHeader=X-Test, after-july
+        - id: after-august
+          uri: http://localhost:8001
+          predicates:
+            - After=2023-08-01T00:00:00+09:00
+          filters:
+            - AddResponseHeader=X-Test, after-august

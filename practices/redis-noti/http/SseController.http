@@ -1,0 +1,10 @@
+GET http://localhost:8080/api/notifications
+
+###
+POST http://localhost:8080/api/notifications
+Content-Type: application/json
+
+{
+  "type": "follow",
+  "message": "새로운 팔로워가 생겼어요"
+}

@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: circuitbreaker
+          uri: http://localhost:8001
+          predicates:
+            - Path=/hello
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: halfOpen
+                fallbackUri: forward:/fallback/hello
+                statusCodes:
+                  - 400
+                  - 500

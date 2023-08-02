@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: redirect-to
+          uri: http://localhost:8001
+          predicates:
+            - Path=/redirect
+          filters:
+            - RedirectTo=308, http://grizz.com
+        - id: redirect-to2
+          uri: http://localhost:8001
+          predicates:
+            - Path=/redirect
+          filters:
+            - name: RedirectTo
+              args:
+                status: 308
+                url: http://grizz.com

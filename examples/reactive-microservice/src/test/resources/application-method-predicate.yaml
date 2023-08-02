@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: get-or-post
+          uri: http://localhost:8001
+          predicates:
+            - Method=GET,post
+        - id: get-and-post2
+          uri: http://localhost:8001
+          predicates:
+              - name: Method
+                args:
+                  methods:
+                    - OPTIONS

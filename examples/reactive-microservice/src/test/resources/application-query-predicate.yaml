@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: greeting-query
+          uri: http://localhost:8001
+          predicates:
+            - Query=greeting, ^H.*
+        - id: greeting-query2
+          uri: http://localhost:8001
+          predicates:
+            - name: Query
+              args:
+                param: greeting2
+                regexp: ^H.*

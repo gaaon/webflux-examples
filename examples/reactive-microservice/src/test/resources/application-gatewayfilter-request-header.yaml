@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: add-request-header
+          uri: http://localhost:8001
+          predicates:
+              - Path=/add
+          filters:
+            - AddRequestHeader=X-Test, hola
+        - id: set-request-header
+          uri: http://localhost:8001
+          predicates:
+            - Path=/set
+          filters:
+            - SetRequestHeader=X-Test, hola
+        - id: map-request-header
+          uri: http://localhost:8001
+          predicates:
+              - Path=/map
+          filters:
+              - MapRequestHeader=X-Test, X-Test-Next
+        - id: remove-request-header
+          uri: http://localhost:8001
+          predicates:
+              - Path=/remove
+          filters:
+              - RemoveRequestHeader=X-Test

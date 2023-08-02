@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: multiple
+          uri: http://localhost:8001
+          predicates:
+            - Path=/user/**
+            - Method=GET
+            - Host=**.grizz.org
+        - id: multiple-b
+          uri: http://localhost:8001
+          predicates:
+            - Path=/image/**
+            - Method=POST
+            - Host=**.grizz.org

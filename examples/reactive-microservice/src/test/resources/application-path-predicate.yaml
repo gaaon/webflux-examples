@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: hello-path
+          uri: http://localhost:8001
+          predicates:
+            - Path=/hello/{segment},/hello2/**,true
+        - id: hola-path
+          uri: http://localhost:8001
+          predicates:
+            - name: Path
+              args:
+                patterns:
+                  - '/hola/{segment}'
+                  - '/hola2/**'
+                matchTrailingSlash: false

@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: main
+          uri: http://localhost:8001
+          predicates:
+            - Weight=group1, 99
+          filters:
+            - SetPath=/branch/main
+        - id: canary
+          uri: http://localhost:8001
+          predicates:
+            - name: Weight
+              args:
+                weight.group: group1
+                weight.weight: 1
+          filters:
+            - SetPath=/branch/canary

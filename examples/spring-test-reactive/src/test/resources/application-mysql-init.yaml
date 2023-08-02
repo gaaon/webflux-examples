@@ -1,0 +1,5 @@
+spring:
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:sql/mysql.sql

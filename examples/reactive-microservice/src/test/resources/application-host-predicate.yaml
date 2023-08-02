@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: greeting-host
+          uri: http://localhost:8001
+          predicates:
+            - Host=**.greeting.io,**.greeting.org
+        - id: greeting-host2
+          uri: http://localhost:8001
+          predicates:
+            - name: Host
+              args:
+                patterns:
+                  - '**.greeting2.io'
+                  - '**.greeting2.org'

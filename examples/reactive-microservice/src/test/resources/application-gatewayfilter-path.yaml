@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: prefix-path
+          uri: http://localhost:8001
+          predicates:
+              - Path=/prefix
+          filters:
+            - PrefixPath=/hello
+        - id: strip-prefix
+          uri: http://localhost:8001
+          predicates:
+              - Path=/strip/**
+          filters:
+            - StripPrefix=3
+        - id: set-path
+          uri: http://localhost:8001
+          predicates:
+              - Path=/set/{segment}
+          filters:
+              - SetPath=/hello/{segment}
+        - id: rewrite-path
+          uri: http://localhost:8001
+          predicates:
+              - Path=/rewrite/**
+          filters:
+              - "RewritePath=/rewrite/(?<group1>.*),\
+                /hello/${group1}/hoi"

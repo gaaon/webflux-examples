@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: greeting-header
+          uri: http://localhost:8001
+          predicates:
+            - Header=x-greeting, ^H.*
+        - id: greeting-header2
+          uri: http://localhost:8001
+          predicates:
+            - name: Header
+              args:
+                header: x-greeting2
+                regexp: ^H.*

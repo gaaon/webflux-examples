@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: add-request-param
+          uri: http://localhost:8001
+          predicates:
+            - Path=/add
+          filters:
+            - AddRequestParameter=greeting, hello
+        - id: remove-request-param
+          uri: http://localhost:8001
+          predicates:
+            - Path=/remove
+          filters:
+            - RemoveRequestParameter=greeting

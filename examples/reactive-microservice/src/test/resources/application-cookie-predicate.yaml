@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: greeting-cookie
+          uri: http://localhost:8001
+          predicates:
+            - Cookie=greeting, ^H.*
+        - id: greeting-cookie2
+          uri: http://localhost:8001
+          predicates:
+            - name: Cookie
+              args:
+                name: greeting2
+                regexp: ^H.*

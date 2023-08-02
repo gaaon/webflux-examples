@@ -1,0 +1,5 @@
+spring:
+  r2dbc:
+    username: root
+    password: 1234
+    url: r2dbc:tc:mysql:///wooman?TC_IMAGE_TAG=8.0.31

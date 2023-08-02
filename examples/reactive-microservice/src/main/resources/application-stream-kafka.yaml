@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093,localhost:9094
+        bindings:
+          addGreeting-in-0:
+            consumer:
+              startOffset: latest
+          logName-in-0:
+            consumer:
+              startOffset: earliest
+      bindings:
+        addGreeting-in-0:
+          binder: kafka
+          destination: name
+          content-type: text/plain
+          group: group1
+        logName-in-0:
+          binder: kafka
+          destination: name
+          content-type: text/plain
+          group: group2
+        addGreeting-out-0:
+          binder: kafka
+          destination: greeting
+          content-type: text/plain
+        supplyNames2-out-0:
+          binder: kafka
+          destination: name
+          content-type: text/plain
