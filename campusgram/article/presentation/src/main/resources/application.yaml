@@ -1,0 +1,27 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:1234@localhost:27017/wooman?authSource=admin
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093,localhost:9094
+      bindings:
+        articles-out-0:
+          binder: kafka
+          destination: articles
+          content-type: text/plain
+          group: group2
+resilience4j:
+  circuitbreaker:
+    instances:
+      image:
+        sliding-window-size: 4
+        automatic-transition-from-open-to-half-open-enabled: true
+        permitted-number-of-calls-in-half-open-state: 4
+        wait-duration-in-open-state: 3s
+  timelimiter:
+    instances:
+      image:
+        timeout-duration: 1s

@@ -14,24 +14,22 @@ import java.util.concurrent.Executors;
 @Slf4j
 public class HttpEventHandler implements EventHandler {
     private final ExecutorService executorService = Executors.newFixedThreadPool(50);
-    private final Selector selector;
     private final SocketChannel clientSocket;
     private final MsgCodec msgCodec;
 
     @SneakyThrows
     public HttpEventHandler(Selector selector, SocketChannel clientSocket) {
-        this.selector = selector;
         this.clientSocket = clientSocket;
         this.clientSocket.configureBlocking(false);
-        this.clientSocket.register(this.selector, SelectionKey.OP_READ).attach(this);
+        this.clientSocket.register(selector, SelectionKey.OP_READ).attach(this);
         this.msgCodec = new MsgCodec();
     }
 
     @Override
     public void handle() {
-        String requestBody = handleRequest(this.clientSocket);
+        String requestBody = handleRequest();
         log.info("requestBody: {}", requestBody);
-        sendResponse(this.clientSocket, requestBody);
+        sendResponse(requestBody);
     }
 
     /**
@@ -43,21 +41,21 @@ public class HttpEventHandler implements EventHandler {
      *
      */
     @SneakyThrows
-    private String handleRequest(SocketChannel clientSocket) {
+    private String handleRequest() {
         ByteBuffer requestByteBuffer = ByteBuffer.allocateDirect(1024);
-        clientSocket.read(requestByteBuffer);
+        this.clientSocket.read(requestByteBuffer);
         return msgCodec.decode(requestByteBuffer);
     }
 
     @SneakyThrows
-    private void sendResponse(SocketChannel clientSocket, String requestBody) {
+    private void sendResponse(String requestBody) {
         CompletableFuture.runAsync(() -> {
             try {
                 Thread.sleep(10);
 
                 ByteBuffer responeByteBuffer = msgCodec.encode(requestBody);
-                clientSocket.write(responeByteBuffer);
-                clientSocket.close();
+                this.clientSocket.write(responeByteBuffer);
+                this.clientSocket.close();
             } catch (Exception e) { }
         }, executorService);
     }

@@ -16,7 +16,6 @@ public class Reactor implements Runnable {
     private static ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final ServerSocketChannel serverSocket;
     private final Selector selector;
-    private final EventHandler acceptor;
 
     @SneakyThrows
     public Reactor(int port) {
@@ -25,7 +24,7 @@ public class Reactor implements Runnable {
         serverSocket.bind(new InetSocketAddress("localhost", port));
         serverSocket.configureBlocking(false);
 
-        acceptor = new Acceptor(selector, serverSocket);
+        var acceptor = new Acceptor(selector, serverSocket);
         serverSocket.register(selector, SelectionKey.OP_ACCEPT).attach(acceptor);
     }
 

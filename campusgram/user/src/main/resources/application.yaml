@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    stream:
+
+      kafka:
+        binder:
+          brokers: localhost:9092,localhost:9093,localhost:9094
+        bindings:
+          followerNoti-in-0:
+            consumer:
+              start-offset: latest
+      bindings:
+        followerNoti-in-0:
+          binder: kafka
+          destination: articles
+          content-type: text/plain
+          group: group2
+        followerNoti-out-0:
+          binder: kafka
+          destination: notifications
+          content-type: text/plain
+          group: group2
+    function:
+      definition: followerNoti
+server:
+  port: 8082

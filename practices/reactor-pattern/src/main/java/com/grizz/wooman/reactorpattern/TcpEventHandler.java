@@ -15,15 +15,13 @@ import java.util.concurrent.Executors;
 @Slf4j
 public class TcpEventHandler implements EventHandler {
     private final ExecutorService executorService = Executors.newFixedThreadPool(50);
-    private final Selector selector;
     private final SocketChannel clientSocket;
 
     @SneakyThrows
     public TcpEventHandler(Selector selector, SocketChannel clientSocket) {
-        this.selector = selector;
         this.clientSocket = clientSocket;
         this.clientSocket.configureBlocking(false);
-        this.clientSocket.register(this.selector, SelectionKey.OP_READ).attach(this);
+        this.clientSocket.register(selector, SelectionKey.OP_READ).attach(this);
     }
 
     @Override

@@ -1,0 +1,4 @@
+GET http://localhost:8081/api/images/1
+
+###
+GET http://localhost:8081/api/images?imageIds=1,2

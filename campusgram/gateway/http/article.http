@@ -1,0 +1,9 @@
+POST http://localhost:8100/articles/api/v1/articles
+Content-Type: application/json
+X-I-AM: 123456
+
+{
+  "title": "article1",
+  "content": "this is article content",
+  "thumbnailImageIds": ["1", "2"]
+}

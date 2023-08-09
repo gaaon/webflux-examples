@@ -59,10 +59,6 @@ services:
       - KAFKA_CLUSTERS_0_NAME=local
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka-1:29092,kafka-2:29093,kafka-3:29094
       - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper-1:22181
-  redis:
-    image: redis:7.0
-    ports:
-      - 6379:6379
   mysql:
     image: mysql:8.0.31
     ports:
@@ -70,3 +66,15 @@ services:
     environment:
       MYSQL_DATABASE: wooman
       MYSQL_ROOT_PASSWORD: 1234
+  mongo:
+    image: mongo:6.0.5
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: wooman
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+  redis:
+    image: redis:7.0
+    ports:
+      - 6379:6379
